@@ -3,11 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package eggmanageriso15;
 
 /**
  *
  * @author Dxg125
  */
-public class main {
+public class EggManagerISO15 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
     
 }
