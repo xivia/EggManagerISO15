@@ -9,5 +9,5 @@
  * @author Dxg125
  */
 public class main {
-sadf
+//THIS IS SOME COMMENT FÖR SUCKING YMUKICKINGS
 }
