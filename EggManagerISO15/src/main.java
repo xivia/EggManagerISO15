@@ -9,6 +9,4 @@
  * @author Dxg125
  */
 public class main {
-sdffiofjsdoifjsoi
-    
 }
