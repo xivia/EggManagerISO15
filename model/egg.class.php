@@ -6,9 +6,9 @@
   Dont fuck with me!
  */
 
-include_once 'weight.class.php';
-include_once 'type.class.php';
-include_once 'color.class.php';
+require_once 'weight.class.php';
+require_once 'type.class.php';
+require_once 'color.class.php';
 
 class egg {
 
@@ -21,9 +21,9 @@ class egg {
         $this->type = new type($type);
         $this->weight = new weight($gramm);
     }
-    
+
     function __destruct() {
-       
+        
     }
 
     function setColor($color) {
