@@ -10,7 +10,7 @@ $command = filter_input(INPUT_POST, "command");
 if ($command == "egg") {
 
     if ($action == "get") {
-        $egg = new egg($data[0], $data[2], $data[1]);
-        echo json_encode($egg);
+        $egg = new egg($data[0], $data[2], $data[1], $data[3]);
+        echo json_encode($egg->getInfo());
     }
 }
