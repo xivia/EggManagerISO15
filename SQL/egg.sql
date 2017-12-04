@@ -2,23 +2,49 @@ Drop Database if exists EggVerwaltung;
 Create Database EggVerwaltung;
 use EggVerwaltung;
 
+
+
+create table eggSize (
+	
+	sizeId INT NOT NULL,
+	name varchar(64),
+	sizeFrom double(5,2), /* in mm */
+	sizeTo double(5,2), /* in mm */
+	PRIMARY KEY(sizeId)
+);
+
+create table eggType (
+	
+	typeId INT NOT NULL,
+	name varchar(64),
+	PRIMARY KEY(typeId)
+);
+
+create table eggColor (
+	
+	colorId INT NOT NULL,
+	name varchar(64),
+	PRIMARY KEY(colorId)
+);
+
+create table eggStatus (
+	
+	statusId INT NOT NULL,
+	name varchar(64),
+	PRIMARY KEY(statusId)
+);
+
 create Table Egg (
 	egId INT NOT NULL,
 	name varchar(64),
-	color varchar(64),
-	size enum('tiny','small','medium','big','xxxxxxxxl'),
+	eggColor INT,
+	eggSize INT,
+	eggType INT,
+	eggStatus INT,
 	weight double(5,2), /* in gramm */
-	status enum('store','eat','break','miss'),
+	FOREIGN KEY (eggSize) REFERENCES eggSize (sizeId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (eggType) REFERENCES eggType (typeId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (eggColor) REFERENCES eggColor (colorId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (eggStatus) REFERENCES eggStatus (statusId) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY(egId)
 );
-/*
-create Table Chest (
-	chId INT NOT NULL,
-	arId INT,
-	name varchar(32),
-	number_Card int(4),
-	rarity enum('Wood','Crown','Silver','Gold','Giant','Epic','Magic','Supermagic','Legendary','Tournament'),
-	FOREIGN KEY (arId) REFERENCES Arena (arId) ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY(chId)
-);
-*/
