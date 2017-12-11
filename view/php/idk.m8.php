@@ -15,19 +15,16 @@ print_r($res);
 <div id="banana"></div>
 
 <script>
-    /* chunt no ane andere ort, bla bla ke strukur...*/
-
     function getEgg() {
         var a = new Array({
-            "color": $("#eggColor").val(), 
-            "type": $("#eggType").val(), 
+            "color": $("#eggColor").val(),
+            "type": $("#eggType").val(),
             "name": $("#eggName").val(),
             "weight": $("#eggWeight").val()
         });
-        
+
         getPostRequest(a, "get", "egg").done(function (e) {
             $("#banana").html(e);
         });
     }
-
 </script>
