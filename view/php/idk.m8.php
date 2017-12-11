@@ -1,4 +1,8 @@
-<?php ?>
+<?php
+$sql = new SQL();
+$res = $sql->query("SELECT * from egg;");
+print_r($res);
+?>
 
 <div>
     <div>Color: <input id="eggColor" type="text" class="w3-input"></div>
