@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Namen</th>
+      <th>Farbe</th>
+      <th>Grösse</th>
+      <th>Typ</th>
+      <th>Gewicht</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ei of eierArray">
+      <td>{{ei.id}}</td>
+      <td>{{ei.name}}</td>
+      <td>{{ei.color}}</td>
+      <td>{{ei.size}}</td>
+      <td>{{ei.type}}</td>
+      <td>{{ei.weight}}</td>
+    </tr>
+  </tbody>
+</table>
