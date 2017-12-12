@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { EierListeComponent } from './eier-liste/eier-liste.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EierListeComponent
   ],
   imports: [
     BrowserModule
