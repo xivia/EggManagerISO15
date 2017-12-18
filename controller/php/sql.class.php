@@ -1,10 +1,13 @@
 <?php
 
-$dbHost = "sql11.freesqldatabase.com";
-$dbName = "sql11210356";
-$dbUser = "sql11210356";
-$dbPass = "AEwLKpvY4Y";
-$dbPort = "3306";
+/*
+ * Doesnt work so...
+ * 
+  $dbHost = "sql11.freesqldatabase.com";
+  $dbName = "sql11210356";
+  $dbUser = "sql11210356";
+  $dbPass = "AEwLKpvY4Y";
+  $dbPort = "3306"; */
 
 class SQL {
 
@@ -18,13 +21,18 @@ class SQL {
     }
 
     function __destruct() {
+        mysqli_close($this->sql);
         $this->sql = null;
     }
 
-    function query($query) {
-        $r = mysqli_query($this->sql, $query);
-        $res = mysqli_fetch_assoc($r);
-        return $res;
+    /**
+     * @description mysql query function
+     * @param String $q the mysql InnoDB query as String
+     * @return type boolean || array
+     */
+    function query(String $q) {
+        $r = mysqli_query($this->sql, $q);
+        return gettype($r) == "boolean" ? $r : (mysqli_fetch_row($r)); //return if boolean return else fetch
     }
 
 }
