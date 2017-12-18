@@ -11,9 +11,9 @@ class SQL {
     private $sql;
 
     function __construct() {
-        $this->sql = mysqli_connect("sql11.freesqldatabase.com", "sql11210360", "Iso15.123", "sql11210360");
+        $this->sql = mysqli_connect("localhost", "user", "Tabaluga1", "egg");
         if (!$this->sql) {
-            die("Connection failed: " . mysqli_connect_error());
+            die("Connection failed: " . mysqli_connect_error() . "----" . mysqli_connect_errno());
         }
     }
 
