@@ -76,4 +76,4 @@ insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("ga
 select * from eggColor;
 select * from eggType;
 select * from eggStatus;
-select * from eggSize;	/* chame anhand vom weight usrechne */
+select * from eggSize;	/* chame anhand vom weight usrechne  */
