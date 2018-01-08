@@ -66,7 +66,7 @@ export class EierListeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('http://localhost:8080/EggManagerISO15/api/egg.php').subscribe(console.log);
+    this.http.get('/EggManagerISO15/api/egg.php').subscribe(console.log);
     this.fullList = [];
     /*this.fullList = [
       {

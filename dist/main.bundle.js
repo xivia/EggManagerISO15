@@ -223,9 +223,7 @@ var EierListeComponent = (function () {
         }
     };
     EierListeComponent.prototype.ngOnInit = function () {
-        var header = new __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["c" /* HttpHeaders */]();
-        header.set('Access-Control-Allow-Origin', 'true');
-        this.http.get('http://localhost:8080/EggManagerISO15/api/egg.php', { headers: header }).subscribe(console.log);
+        this.http.get('/EggManagerISO15/api/egg.php').subscribe(console.log);
         this.fullList = [];
         /*this.fullList = [
           {
