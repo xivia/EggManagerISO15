@@ -73,7 +73,7 @@ insert into eggStatus(statusId, name) values (4,'In Work');
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("gaggi", null, null, null, null, 12.5);
 
 
-select * from eggColor;
-select * from eggType;
-select * from eggStatus;
+select * from eggColor; /* int */
+select * from eggType; /* int */
+select * from eggStatus; /* int */
 select * from eggSize;	/* chame anhand vom weight usrechne  */
