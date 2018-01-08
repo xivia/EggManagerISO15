@@ -4,7 +4,7 @@
  * @description description
  * @param {type} url the path which the php file lays on
  * @param {type} data data required for the request
- * @param {type} action = get || set || edit || delete
+ * @param {type} action = get || add || edit || delete
  * @param {type} command
  * @returns {jqXHR} php echo json_encode($stuffYouShouldNotCareBout);
  */

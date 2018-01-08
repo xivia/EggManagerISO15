@@ -1,7 +1,5 @@
 <?php
 
-/*  Das mitem getInfo chömmer au andersch mache kp */
-
 require_once 'model/egg.class.php';
 require_once 'controller/php/sql.class.php';
 

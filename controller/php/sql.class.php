@@ -1,30 +1,38 @@
 <?php
 
-$dbHost = "sql11.freesqldatabase.com";
-$dbName = "sql11210356";
-$dbUser = "sql11210356";
-$dbPass = "AEwLKpvY4Y";
-$dbPort = "3306";
+/*
+ * Doesnt work so...
+ * 
+  $dbHost = "sql11.freesqldatabase.com";
+  $dbName = "sql11210356";
+  $dbUser = "sql11210356";
+  $dbPass = "AEwLKpvY4Y";
+  $dbPort = "3306"; */
 
 class SQL {
 
     private $sql;
 
     function __construct() {
-        $this->sql = mysqli_connect("sql11.freesqldatabase.com", "sql11210360", "Iso15.123", "sql11210360");
+        $this->sql = mysqli_connect("sql11.freesqldatabase.com", "sql11214651", "XnR6KxMuZB", "sql11214651");
         if (!$this->sql) {
-            die("Connection failed: " . mysqli_connect_error());
+            die("Connection failed: " . mysqli_connect_error() . "----" . mysqli_connect_errno());
         }
     }
 
     function __destruct() {
+        mysqli_close($this->sql);
         $this->sql = null;
     }
 
-    function query($query) {
-        $r = mysqli_query($this->sql, $query);
-        $res = mysqli_fetch_assoc($r);
-        return $res;
+    /**
+     * @description mysql query function
+     * @param String $q the mysql InnoDB query as String
+     * @return type boolean || array
+     */
+    function query(String $q) {
+        $r = mysqli_query($this->sql, $q);
+        return gettype($r) == "boolean" ? $r : (mysqli_fetch_row($r)); //return if boolean return else fetch
     }
 
 }
