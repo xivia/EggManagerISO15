@@ -37,8 +37,8 @@ create table eggStatus (
 	PRIMARY KEY(statusId)
 );
 
-create Table Egg (
-	egId INT NOT NULL,
+create Table egg (
+	egId INT NOT NULL auto_increment,
 	name varchar(64),
 	eggColor INT,
 	eggSize INT,
@@ -63,3 +63,6 @@ insert into eggStatus(statusId, name) values (1,'Missing');
 insert into eggStatus(statusId, name) values (2,'Broke');
 insert into eggStatus(statusId, name) values (3,'Eaten');
 insert into eggStatus(statusId, name) values (4,'In Work');
+
+
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("gaggi", null, null, null, null, 12.5);
