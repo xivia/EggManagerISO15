@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 const ORDERS = {
   string: (a: string, b: string) => {
@@ -23,7 +25,7 @@ const order = (field: string, type: string, array: any[]): any[] => {
 })
 export class EierListeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   search: string = '';
   private fullList: any[] = Array();
@@ -32,6 +34,8 @@ export class EierListeComponent implements OnInit {
   orderList(field: string, type: string) {
     if (this.order.field == field) {
       this.order.reversed = !this.order.reversed;
+    } else {
+      this.order.reversed = false;
     }
     this.order.field = field;
     this.order.type = type;
@@ -51,8 +55,20 @@ export class EierListeComponent implements OnInit {
     return returnAble;
   }
 
+  getIcon(order): string {
+    if (order == this.order.field && !this.order.reversed) {
+      return "long-arrow-down";
+    } else if (order == this.order.field) {
+      return "long-arrow-up";
+    } else {
+      return "arrows-v";
+    }
+  }
+
   ngOnInit() {
-    this.fullList = [
+    this.http.get('http://localhost:8080/EggManagerISO15/api/egg.php').subscribe(console.log);
+    this.fullList = [];
+    /*this.fullList = [
       {
         id: '1',
         name: 'Eiophor',
@@ -85,7 +101,6 @@ export class EierListeComponent implements OnInit {
         type: 'nümme guet',
         weight: 22.21
       }
-    ];
+    ];*/
   }
-
 }
