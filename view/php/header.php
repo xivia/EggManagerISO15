@@ -8,6 +8,8 @@ $header .= "<title>Titlerino ----------------------- mit ganz vell Zeiche (hÃ¶hÃ
 
 $header .= "<script src='http://code.jquery.com/jquery-latest.min.js'></script>";
 $header .= "<script src='view/js/request.js'></script>";
+$header .= "<script src='view/js/jqx-all.js'></script>";
+$header .= "<script src='view/js/jqxcore.js'></script>";
 
 $header .= "<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>";
 $header .= "<link rel='stylesheet' href='view/css/style.css'>";

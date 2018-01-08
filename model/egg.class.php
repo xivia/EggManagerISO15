@@ -2,7 +2,7 @@
 
 /*
   v 0.125
-  Comments doze röckings
+  Comments dose röckings
   Dont fuck with me!
  */
 
