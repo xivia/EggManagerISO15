@@ -14,7 +14,7 @@ class SQL {
     private $sql;
 
     function __construct() {
-        $this->sql = mysqli_connect("localhost", "user", "Tabaluga1", "egg");
+        $this->sql = mysqli_connect("sql11.freesqldatabase.com", "sql11214651", "XnR6KxMuZB", "sql11214651");
         if (!$this->sql) {
             die("Connection failed: " . mysqli_connect_error() . "----" . mysqli_connect_errno());
         }
