@@ -15,11 +15,13 @@ class egg {
     var $color;
     var $type;
     var $weight;
+    var $name;
 
-    function __construct($color, $type, $gramm) {
+    function __construct($color, $type, $gramm, $name) {
         $this->color = new color($color);
         $this->type = new type($type);
         $this->weight = new weight($gramm);
+        $this->name = $name;
     }
 
     function __destruct() {
@@ -42,6 +44,7 @@ class egg {
         $a = Array();
         $a["type"] = $this->type->getType();
         $a["color"] = $this->color->getColor();
+        $a["name"] = $this->name;
         $a["weight"] = $this->weight->getWeight() . " g";
         return $a;
     }

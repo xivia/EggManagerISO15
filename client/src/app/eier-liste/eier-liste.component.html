@@ -1,0 +1,23 @@
+<input type="text" [(ngModel)]="search">
+<table>
+  <thead>
+    <tr>
+      <th (click)="orderList('id', 'number')">ID</th>
+      <th (click)="orderList('name', 'string')">Namen</th>
+      <th (click)="orderList('color', 'string')">Farbe</th>
+      <th (click)="orderList('size', 'number')">Grösse</th>
+      <th>Typ</th>
+      <th (click)="orderList('weight', 'number')">Gewicht</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ei of list">
+      <td>{{ei.id}}</td>
+      <td>{{ei.name}}</td>
+      <td>{{ei.color}}</td>
+      <td>{{ei.size}}</td>
+      <td>{{ei.type}}</td>
+      <td>{{ei.weight}}</td>
+    </tr>
+  </tbody>
+</table>
