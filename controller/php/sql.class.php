@@ -31,10 +31,17 @@ class SQL {
      */
     function query(String $q) {
         $r = mysqli_query($this->sql, $q);
-       /* if (strpos($q, "insert") || strpos($q, "INSERT")){
+        if (strpos(strtolower($q), "insert") !== false) {
             return mysqli_query($this->sql, "SELECT LAST_INSERT_ID();");
-        }*/
-        return gettype($r) == "boolean" ? $r : (mysqli_fetch_all($r)); //return if boolean return else fetch
+        }
+        if (strpos(strtolower($q), "select") !== false) {
+            $t = Array();
+            while ($row = $r->fetch_assoc()) {
+                array_push($t, $row);
+            }
+            return $t;
+        }
+        return gettype($r) == "boolean" ? $r : (mysqli_fetch_assoc($r)); //return if boolean return else fetch
     }
 
 }
