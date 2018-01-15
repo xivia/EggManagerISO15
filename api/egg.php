@@ -1,7 +1,5 @@
 <?php
 
-$rp = __DIR__;
-
 require_once '../model/egg.class.php';
 require_once '../controller/php/sql.class.php';
 

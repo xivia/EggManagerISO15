@@ -22,7 +22,6 @@ class SQL {
 
     function __destruct() {
         mysqli_close($this->sql);
-        $this->sql = null;
     }
 
     /**
@@ -32,7 +31,17 @@ class SQL {
      */
     function query(String $q) {
         $r = mysqli_query($this->sql, $q);
-        return gettype($r) == "boolean" ? $r : (mysqli_fetch_row($r)); //return if boolean return else fetch
+        if (strpos(strtolower($q), "insert") !== false) {
+            return mysqli_query($this->sql, "SELECT LAST_INSERT_ID();");
+        }
+        if (strpos(strtolower($q), "select") !== false) {
+            $t = Array();
+            while ($row = $r->fetch_assoc()) {
+                array_push($t, $row);
+            }
+            return $t;
+        }
+        return gettype($r) == "boolean" ? $r : (mysqli_fetch_assoc($r)); //return if boolean return else fetch
     }
 
 }

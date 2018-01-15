@@ -1,13 +1,13 @@
-<input type="text" [(ngModel)]="search">
+<input type="text" [(ngModel)]="search" placeholder="Search Egg...">
 <table>
   <thead>
     <tr>
-      <th (click)="orderList('id', 'number')">ID</th>
-      <th (click)="orderList('name', 'string')">Namen</th>
-      <th (click)="orderList('color', 'string')">Farbe</th>
-      <th (click)="orderList('size', 'number')">Grösse</th>
-      <th (click)="orderList('type', 'string')">Typ</th>
-      <th (click)="orderList('weight', 'number')">Gewicht</th>
+      <th (click)="orderList('id', 'number')">ID&nbsp;<i class="fa fa-{{getIcon('id')}}"></i></th>
+      <th (click)="orderList('name', 'string')">Namen&nbsp;<i class="fa fa-{{getIcon('name')}}"></i></th>
+      <th (click)="orderList('color', 'string')">Farbe&nbsp;<i class="fa fa-{{getIcon('color')}}"></i></th>
+      <th (click)="orderList('size', 'number')">Grösse&nbsp;<i class="fa fa-{{getIcon('size')}}"></i></th>
+      <th (click)="orderList('type', 'string')">Typ&nbsp;<i class="fa fa-{{getIcon('type')}}"></i></th>
+      <th (click)="orderList('weight', 'number')">Gewicht&nbsp;<i class="fa fa-{{getIcon('weight')}}"></i></th>
     </tr>
   </thead>
   <tbody>
