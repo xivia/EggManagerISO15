@@ -14,7 +14,7 @@ class SQL {
     private $sql;
 
     function __construct() {
-        $this->sql = mysqli_connect("sql11.freesqldatabase.com", "sql11215760", "WLhKja9IEh", "sql11215760");
+        $this->sql = mysqli_connect("sql11.freesqldatabase.com", "sql11215806", "qvPApmJEmn", "sql11215806");
         if (!$this->sql) {
             die("Connection failed: " . mysqli_connect_error() . "----" . mysqli_connect_errno());
         }
@@ -25,7 +25,7 @@ class SQL {
     }
 
     public static function getTable() {
-        return "sql11215760";
+        return "sql11215806";
     }
 
     function resAssoc($r) {
