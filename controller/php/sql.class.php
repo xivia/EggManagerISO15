@@ -28,6 +28,14 @@ class SQL {
         return "sql11215760";
     }
 
+    function resAssoc($r) {
+        $t = Array();
+        while ($row = $r->fetch_assoc()) {
+            array_push($t, $row);
+        }
+        return $t;
+    }
+
     /**
      * @description mysql query function
      * @param String $q the mysql InnoDB query as String
@@ -39,11 +47,7 @@ class SQL {
             return mysqli_query($this->sql, "SELECT LAST_INSERT_ID();");
         }
         if (strpos(strtolower($q), "select") !== false) {
-            $t = Array();
-            while ($row = $r->fetch_assoc()) {
-                array_push($t, $row);
-            }
-            return $t;
+            return $r == null ? [] : (resAssoc($r));
         }
         if (strpos(strtolower($q), "delete") !== false) {
             return $r;
