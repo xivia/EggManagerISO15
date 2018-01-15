@@ -10,7 +10,11 @@
 
 <div id="banana"></div>
 
-
+<div id="delete">
+    <div id="combobox"></div>
+    <input type="button" id="remove" value="delete" onclick="removeEgg(1);">
+    <input type="button" id="setDeleted" value="setDeleted" onclick="removeEgg(0)">
+</div>
 
 <div class="w3-container">
     <button onclick="document.getElementById('addEgg').style.display = 'block'" class="w3-button w3-black">Add Sum Egg</button>
@@ -49,4 +53,34 @@
             $("#egginc").html(e);
         });
     }
+
+    function removeEgg(i) {
+        var id = $('#combobox').val();
+        console.log(id + " " + i);
+        if (i == 1) {
+            getPostRequest(id, "delete", "egg").done(function (e) {
+                console.log(e);
+            });
+        } else {
+            getPostRequest(id, "setDeletetd", "egg").done(function (e) {
+                console.log(e);
+            });
+        }
+    }
+
+    $(document).ready(function () {
+
+        $.jqx.theme = 'orange';
+        getPostRequest(null, "get", "egg").done(function (e) {
+            console.log(e);
+            var s = {datatype: "json", datafields: [{name: 'egId', type: 'string'}, {name: 'name', type: 'string'}], localdata: e};
+            var a = new $.jqx.dataAdapter(s);
+            $('#combobox').jqxComboBox({selectedIndex: 0, source: a, displayMember: "name", valueMember: "egId", itemHeight: 70, height: 25, width: 270});
+        });
+
+        $("#remove").jqxButton({width: 120, height: 40});
+        $("#setDeleted").jqxButton({width: 120, height: 40});
+
+    });
+
 </script>

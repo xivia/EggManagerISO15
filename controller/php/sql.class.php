@@ -24,6 +24,10 @@ class SQL {
         mysqli_close($this->sql);
     }
 
+    public static function getTable() {
+        return "sql11215760";
+    }
+
     /**
      * @description mysql query function
      * @param String $q the mysql InnoDB query as String
@@ -41,6 +45,10 @@ class SQL {
             }
             return $t;
         }
+        if (strpos(strtolower($q), "delete") !== false) {
+            return $r;
+        }
+        return $r;
         return gettype($r) == "boolean" ? $r : (mysqli_fetch_assoc($r)); //return if boolean return else fetch
     }
 
