@@ -81,6 +81,18 @@ insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("ga
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("arber", null, null, null, null, 12.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("schoggihaas", null, null, null, null, 12.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("earth-chan", 1, 2, 3, 1, 12.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Robin-chan", 1, 2, 3, 1, 100.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Moon-chan", 1, 4, 2, 3, 11.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Pluto-chan", 1, 0, 2, 1, 15162.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Sun-chan", 1, 3, 4, 2, 52.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Jackie-chan", 1, 2, 3, 1, 561.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("arber-chan", 1, 2, 3, 1, 5361.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("DO you know da wae", 1, 2, 3, 1, 666.66);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Aids-chan", 1, 3, 3, 1, 2342.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Ebola-chan", 1, 4, 3, 1, 234.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Robin2-chan", 3, 2, 3, 1, 34.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Flower-chan", 4, 3, 3, 1, 4.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Trigger-chan", 2, 2, 3, 1, 32.5);
 
 
 select * from eggColor; /* int */
