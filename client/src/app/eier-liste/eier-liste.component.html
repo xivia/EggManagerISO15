@@ -2,21 +2,21 @@
 <table>
   <thead>
     <tr>
-      <th (click)="orderList('id', 'number')">ID&nbsp;<i class="fa fa-{{getIcon('id')}}"></i></th>
+      <th (click)="orderList('eggId', 'number')">ID&nbsp;<i class="fa fa-{{getIcon('eggId')}}"></i></th>
       <th (click)="orderList('name', 'string')">Namen&nbsp;<i class="fa fa-{{getIcon('name')}}"></i></th>
-      <th (click)="orderList('color', 'string')">Farbe&nbsp;<i class="fa fa-{{getIcon('color')}}"></i></th>
-      <th (click)="orderList('size', 'number')">Grösse&nbsp;<i class="fa fa-{{getIcon('size')}}"></i></th>
-      <th (click)="orderList('type', 'string')">Typ&nbsp;<i class="fa fa-{{getIcon('type')}}"></i></th>
+      <th (click)="orderList('eggColor', 'string')">Farbe&nbsp;<i class="fa fa-{{getIcon('eggColor')}}"></i></th>
+      <th (click)="orderList('eggSize', 'number')">Grösse&nbsp;<i class="fa fa-{{getIcon('eggSize')}}"></i></th>
+      <th (click)="orderList('eggType', 'string')">Typ&nbsp;<i class="fa fa-{{getIcon('eggType')}}"></i></th>
       <th (click)="orderList('weight', 'number')">Gewicht&nbsp;<i class="fa fa-{{getIcon('weight')}}"></i></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let ei of list">
-      <td>{{ei.id}}</td>
+      <td>{{ei.eggId}}</td>
       <td>{{ei.name}}</td>
-      <td>{{ei.color}}</td>
-      <td>{{ei.size}}</td>
-      <td>{{ei.type}}</td>
+      <td>{{ei.eggColor}}</td>
+      <td>{{ei.eggSize}}</td>
+      <td>{{ei.eggType}}</td>
       <td>{{ei.weight}}</td>
     </tr>
   </tbody>

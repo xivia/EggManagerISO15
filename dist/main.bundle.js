@@ -129,7 +129,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "table {\r\n  width: 100%;\r\n  height: 100%;\r\n  text-align: center;\r\n}", ""]);
+exports.push([module.i, "table {\r\n  width: 100%;\r\n  height: 100%;\r\n  text-align: center;\r\n  border: 0;\r\n  color: #EEE;\r\n  margin-top: 50px;\r\n}\r\n\r\nthead {\r\n  background-color: #EEE;\r\n  color: #333;\r\n}\r\n\r\nth {\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\r\n\r\ntr {\r\n  height: 30px;\r\n  transition: height .1s;\r\n  transition-timing-function: ease-in;\r\n}\r\n\r\nth:hover {\r\n  background-color: white;\r\n}\r\n\r\n/*\r\ntd:hover {\r\n  height: 60px;\r\n}*/\r\n\r\ntbody tr:hover {\r\n  height: 60px;\r\n}\r\n\r\ntr:nth-child(even) {\r\n  background-color: #444;\r\n}\r\n\r\ninput {\r\nposition: fixed;\r\ntop: 0;\r\nleft: 0;\r\nmargin: 10px;\r\nheight: 25px;\r\nwidth: 100%;\r\nmax-width: 405px;\r\n}", ""]);
 
 // exports
 
@@ -142,7 +142,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/eier-liste/eier-liste.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<input type=\"text\" [(ngModel)]=\"search\">\r\n<table>\r\n  <thead>\r\n    <tr>\r\n      <th (click)=\"orderList('id', 'number')\">ID&nbsp;<i class=\"fa fa-{{getIcon('id')}}\"></i></th>\r\n      <th (click)=\"orderList('name', 'string')\">Namen&nbsp;<i class=\"fa fa-{{getIcon('name')}}\"></i></th>\r\n      <th (click)=\"orderList('color', 'string')\">Farbe&nbsp;<i class=\"fa fa-{{getIcon('color')}}\"></i></th>\r\n      <th (click)=\"orderList('size', 'number')\">Grösse&nbsp;<i class=\"fa fa-{{getIcon('size')}}\"></i></th>\r\n      <th (click)=\"orderList('type', 'string')\">Typ&nbsp;<i class=\"fa fa-{{getIcon('type')}}\"></i></th>\r\n      <th (click)=\"orderList('weight', 'number')\">Gewicht&nbsp;<i class=\"fa fa-{{getIcon('weight')}}\"></i></th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let ei of list\">\r\n      <td>{{ei.id}}</td>\r\n      <td>{{ei.name}}</td>\r\n      <td>{{ei.color}}</td>\r\n      <td>{{ei.size}}</td>\r\n      <td>{{ei.type}}</td>\r\n      <td>{{ei.weight}}</td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n"
+module.exports = "<input type=\"text\" [(ngModel)]=\"search\" placeholder=\"Search Egg...\">\r\n<table>\r\n  <thead>\r\n    <tr>\r\n      <th (click)=\"orderList('eggId', 'number')\">ID&nbsp;<i class=\"fa fa-{{getIcon('eggId')}}\"></i></th>\r\n      <th (click)=\"orderList('name', 'string')\">Namen&nbsp;<i class=\"fa fa-{{getIcon('name')}}\"></i></th>\r\n      <th (click)=\"orderList('eggColor', 'string')\">Farbe&nbsp;<i class=\"fa fa-{{getIcon('eggColor')}}\"></i></th>\r\n      <th (click)=\"orderList('eggSize', 'number')\">Grösse&nbsp;<i class=\"fa fa-{{getIcon('eggSize')}}\"></i></th>\r\n      <th (click)=\"orderList('eggType', 'string')\">Typ&nbsp;<i class=\"fa fa-{{getIcon('eggType')}}\"></i></th>\r\n      <th (click)=\"orderList('weight', 'number')\">Gewicht&nbsp;<i class=\"fa fa-{{getIcon('weight')}}\"></i></th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let ei of list\">\r\n      <td>{{ei.eggId}}</td>\r\n      <td>{{ei.name}}</td>\r\n      <td>{{ei.eggColor}}</td>\r\n      <td>{{ei.eggSize}}</td>\r\n      <td>{{ei.eggType}}</td>\r\n      <td>{{ei.weight}}</td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n"
 
 /***/ }),
 
@@ -166,9 +166,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var ORDERS = {
     string: function (a, b) {
+        if (a == null)
+            return 1;
+        if (b == null)
+            return -1;
         return a.localeCompare(b);
     },
     number: function (a, b) {
+        if (a == null)
+            return 1;
+        if (b == null)
+            return -1;
         return parseInt(a) - parseInt(b);
     }
 };
@@ -223,42 +231,9 @@ var EierListeComponent = (function () {
         }
     };
     EierListeComponent.prototype.ngOnInit = function () {
-        this.http.get('/EggManagerISO15/api/egg.php').subscribe(console.log);
+        var _this = this;
         this.fullList = [];
-        /*this.fullList = [
-          {
-            id: '1',
-            name: 'Eiophor',
-            color: 'wachsgrüün',
-            size: 'medium',
-            type: 'verdorben',
-            weight: 23.83
-          },
-          {
-            id: '2',
-            name: 'Eiophortsch',
-            color: 'wachsggelb',
-            size: 'medium-small',
-            type: 'auch verdorben',
-            weight: 23.23
-          },
-          {
-            id: '3',
-            name: 'Naseböög',
-            color: 'blauuuu',
-            size: 'insane',
-            type: 'gruusig',
-            weight: 29.77
-          },
-          {
-            id: '4',
-            name: 'Janiggerere',
-            color: 'grchüee',
-            size: 'medium-small-big',
-            type: 'nümme guet',
-            weight: 22.21
-          }
-        ];*/
+        this.http.get('/EggManagerISO15/api/egg.php').subscribe(function (eier) { return _this.fullList = eier; });
     };
     EierListeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
