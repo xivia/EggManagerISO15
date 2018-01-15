@@ -46,9 +46,13 @@ if ($command == "egg") {
     }
 
     if ($action == "delete") {
-        echo json_encode($sql->query("DELETE FROM $dbName.egg WHERE egId = $data;"));
+        echo json_encode($sql->query("DELETE FROM $dbName.egg WHERE eggId = $data;"));
     }
     if ($action == "setDeletetd") {
-        echo json_encode($sql->query("UPDATE $dbName.egg SET eggStatus = 99 WHERE egId = $data;"));
+        echo json_encode($sql->query("UPDATE $dbName.egg SET eggStatus = 99 WHERE eggId = $data;"));
+    }
+    
+    if ($action == "drop"){
+        echo json_encode($sql->query("DROP TABLE $dbName.egg;"));
     }
 }

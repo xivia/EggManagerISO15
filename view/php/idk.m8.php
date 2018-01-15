@@ -14,6 +14,7 @@
     <div id="combobox"></div>
     <input type="button" id="remove" value="delete" onclick="removeEgg(1);">
     <input type="button" id="setDeleted" value="setDeleted" onclick="removeEgg(0)">
+    <input type="button" id="drop" value="vorsicht der funktioniert würkli" onclick="dropTable();">
 </div>
 
 <div class="w3-container">
@@ -68,18 +69,25 @@
         }
     }
 
+    function dropTable() {
+        getPostRequest(null, "drop", "egg").done(function (e){
+            console.log(e);
+        });
+    }
+
     $(document).ready(function () {
 
         $.jqx.theme = 'orange';
         getPostRequest(null, "get", "egg").done(function (e) {
             console.log(e);
-            var s = {datatype: "json", datafields: [{name: 'egId', type: 'string'}, {name: 'name', type: 'string'}], localdata: e};
+            var s = {datatype: "json", datafields: [{name: 'eggId', type: 'string'}, {name: 'name', type: 'string'}], localdata: e};
             var a = new $.jqx.dataAdapter(s);
             $('#combobox').jqxComboBox({selectedIndex: 0, source: a, displayMember: "name", valueMember: "egId", itemHeight: 70, height: 25, width: 270});
         });
 
         $("#remove").jqxButton({width: 120, height: 40});
         $("#setDeleted").jqxButton({width: 120, height: 40});
+        $("#drop").jqxButton({width: 120, height: 40});
 
     });
 
