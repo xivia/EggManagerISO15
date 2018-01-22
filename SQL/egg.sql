@@ -43,22 +43,6 @@ create table permission (
 	PRIMARY KEY(peId)
 );
 
-create Table egg (
-	eggId INT NOT NULL auto_increment,
-	name varchar(64),
-	eggCreated TIMESTAMP,
-	eggColor INT,
-	eggSize INT,
-	eggType INT,
-	eggStatus INT,
-	weight double(5,2), /* in gramm */
-	FOREIGN KEY (eggSize) REFERENCES eggSize (sizeId) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (eggType) REFERENCES eggType (typeId) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (eggColor) REFERENCES eggColor (colorId) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (eggStatus) REFERENCES eggStatus (statusId) ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY(eggId)
-);
-
 create table user (
 	usId INT NOT NULL auto_increment,
 	username varchar(32),
@@ -68,6 +52,24 @@ create table user (
 	status INT,
 	FOREIGN KEY (status) REFERENCES permission (peId) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY(usId)
+);
+
+create Table egg (
+	eggId INT NOT NULL auto_increment,
+	name varchar(64),
+	eggCreated TIMESTAMP,
+	eggColor INT,
+	eggSize INT,
+	eggType INT,
+	eggStatus INT,
+	userId INT,
+	weight double(5,2), /* in gramm */
+	FOREIGN KEY (eggSize) REFERENCES eggSize (sizeId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (eggType) REFERENCES eggType (typeId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (eggColor) REFERENCES eggColor (colorId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (eggStatus) REFERENCES eggStatus (statusId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (userId) REFERENCES user (usId) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY(eggId)
 );
 
 insert into eggType(typeId, name) values (0,'Marzipan');
