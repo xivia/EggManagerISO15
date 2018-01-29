@@ -45,7 +45,7 @@ class egg {
         $a["type"] = $this->type->getType();
         $a["color"] = $this->color->getColor();
         $a["name"] = $this->name;
-        $a["weight"] = $this->weight->getWeight() . " g";
+        $a["weight"] = $this->weight->getWeight();
         return $a;
     }
 
