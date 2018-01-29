@@ -2,6 +2,7 @@
 
 <div style='width: 100vw;'>
 
+    <div id="menu_0">
     <div id="" style="height: 100vh; display: inline-block;">
         <div id="eggGrid"><span onclick="loadMenu(0)">Table</span></div>
         <div id="eggSingle"><span onclick="loadMenu(1)">Rest</span></div>
@@ -10,7 +11,7 @@
         <button class='w3-button' onclick='showAllEggs();'>SHOW ME THOS EGG</button>
         <div id='egginc'></div>
     </div>
-
+    </div>
     <div id="grid"></div>
     <div id="banana"></div>
 
@@ -42,6 +43,25 @@
 </div>
 
 <script>
+
+    function loadMenu(e) {
+        if (e == 0) {
+           $("#menu0").css({display: "block"});
+           $("#menu1").css({display: "none"});
+        } else if (e == 1) {
+           $("#menu0").css({display: "none"});
+           $("#menu1").css({display: "block"});
+        } else {
+           $("#menu0").css({display: "block"});
+           $("#menu1").css({display: "none"});
+        }
+    }
+
+    function resTrim(e) {
+        console.log(e);
+        return e.indexOf("*!*") !== -1 ? alert(e) : e == null ? [] : e;
+    }
+
     function getEgg() {
         var a = new Array({
             "color": $("#eggColor").val(),
@@ -51,13 +71,13 @@
         });
 
         getPostRequest(a, "add", "egg").done(function (e) {
-            $("#banana").html(e);
+            $("#banana").html(resTrim(e));
         });
     }
 
     function showAllEggs() {
         getPostRequest(null, "get", "egg").done(function (e) {
-            $("#egginc").html(e);
+            $("#egginc").html(resTrim(e));
         });
     }
 
@@ -66,18 +86,18 @@
         console.log(id + " " + i);
         if (i == 1) {
             getPostRequest(id, "delete", "egg").done(function (e) {
-                console.log(e);
+                console.log(resTrim(e));
             });
         } else {
             getPostRequest(id, "setDeletetd", "egg").done(function (e) {
-                console.log(e);
+                console.log(resTrim(e));
             });
         }
     }
 
     function dropTable() {
         getPostRequest(null, "drop", "egg").done(function (e) {
-            console.log(e);
+            console.log(resTrim(e));
         });
     }
 
@@ -85,23 +105,22 @@
 
         $.jqx.theme = 'orange';
         getPostRequest(null, "get", "egg").done(function (e) {
-
+            resTrim(e);
             //dataAdapter
             var s = {datatype: "json", datafields: [{name: 'eggId', type: 'string'}, {name: 'name', type: 'string'}], localdata: e};
             var a = new $.jqx.dataAdapter(s);
             //combobox
             $('#combobox').jqxComboBox({selectedIndex: 0, source: a, displayMember: "name", valueMember: "eggId", itemHeight: 70, height: 25, width: 270});
 
-            //list
-            $("#grid").jqxGrid({
-                width: getWidth('Grid'),
-                source: dataAdapter,
+            //list3
+            /*$("#grid").jqxGrid({
+                width: "25%",
+                source: a,
                 showfilterrow: true,
                 filterable: true,
                 pageable: true,
                 autoheight: true,
                 editable: true,
-                localization: getLocalization('de'),
                 selectionmode: 'singlecell',
                 columns: [
                     {text: 'eggId', columntype: 'textbox', filtertype: 'textbox', datafield: 'name', width: 180},
@@ -113,7 +132,7 @@
                     {text: 'weight', datafield: 'quantity', columntype: 'numberinput', filtertype: 'textbox', cellsalign: 'right', width: 60},
                     {text: 'eggCreated', datafield: 'datetime', columntype: 'numberinput', filtertype: 'textbox', cellsformat: "c2", cellsalign: 'right'}
                 ]
-            });
+            });*/
 
         });
 

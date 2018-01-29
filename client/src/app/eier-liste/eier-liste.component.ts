@@ -70,7 +70,46 @@ export class EierListeComponent implements OnInit {
   }
 
   ngOnInit() {
+/*
+   // this.http.get('/EggManagerISO15/api/egg.php').subscribe(console.log);
+    this.fullList = [];
+    this.fullList = [
+      {
+        id: '1',
+        name: 'Eiophor',
+        color: 'wachsgrüün',
+        size: 'medium',
+        type: 'verdorben',
+        weight: 23.83
+      },
+      {
+        id: '2',
+        name: 'Eiophortsch',
+        color: 'wachsggelb',
+        size: 'medium-small',
+        type: 'auch verdorben',
+        weight: 23.23
+      },
+      {
+        id: '3',
+        name: 'Naseböög',
+        color: 'blauuuu',
+        size: 'insane',
+        type: 'gruusig',
+        weight: 29.77
+      },
+      {
+        id: '4',
+        name: 'Janiggerere',
+        color: 'grchüee',
+        size: 'medium-small-big',
+        type: 'nümme guet',
+        weight: 22.21
+      }
+    ];
+*/
     this.fullList = [];
     this.http.get('/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+
   }
 }

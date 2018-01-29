@@ -8,7 +8,7 @@ include_once '../../controller/php/sql.class.php';
 	while($row = mysqli_fetch_assoc($res))*/
 
     
-    $con = mysqli_connect("sql11.freesqldatabase.com", "sql11217147", "ERfPPFL49a", "sql11217147");
+    $con = mysqli_connect("sql11.freesqldatabase.com", "sql11218444", "NqQGj36vja", "sql11218444");
     $sql = "SELECT * FROM egg;";
     $result = mysqli_query($con, $sql);
 	while($row = mysqli_fetch_assoc($result))
