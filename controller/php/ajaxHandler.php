@@ -8,7 +8,7 @@ $assoc = json_decode(filter_input(INPUT_POST, "array"), true);
 $action = filter_input(INPUT_POST, "action");
 $command = filter_input(INPUT_POST, "command");
 
-/* DE HUERE VERDAMMTI RETARD VO JANICK HETT ALLI FELDER MIT 2 G GSCHREBE ABER ID WIRD = EGID ICH MEINGE WTF HUERE RETARD KYYYYYYYS JANICK HAST TU ÜBERHAUPT GELERNT*/
+/* DE HUERE VERDAMMTI RETARD VO JANICK HETT ALLI FELDER MIT 2 G GSCHREBE ABER ID WIRD = EGID ICH MEINGE WTF HUERE RETARD KYYYYYYYS JANICK HAST TU ÜBERHAUPT GELERNT */
 
 $dbName = sql::getTable();
 
@@ -31,7 +31,7 @@ if ($command == "egg") {
         $return = Array();
         foreach ($assoc as $a) {
             $egg = new egg($a["color"], $a["type"], $a["weight"], $a["name"]);
-            $res = $sql->query("INSERT INTO $dbName.egg (name, eggColor, eggSize, eggType) VALUES ('" . $a["name"] . "', " . $a["color"] . ", " . $a["weight"] . ", " . $a["type"] . ");");
+            $res = $sql->query("INSERT INTO $dbName.egg (name, eggColor, eggSize, eggType) VALUES ('" . $a["name"] . "', " . (int) $a["color"] . ", " . (int) $a["weight"] . ", " . (int) $a["type"] . ");");
             $res ? (array_push($return, $egg->getInfo())) : (error("RIP", "500"));
         }
         echo json_encode($return);       // echo $res ? (json_encode($egg->getInfo())) : (json_encode(false));
@@ -51,10 +51,9 @@ if ($command == "egg") {
     if ($action == "setDeletetd") {
         echo json_encode($sql->query("UPDATE $dbName.egg SET eggStatus = 99 WHERE eggId = $data;"));
     }
-    
-    if ($action == "drop"){
+
+    if ($action == "drop") {
         //echo json_encode($sql->query("DROP TABLE $dbName.egg;"));
-		echo json_encode($sql->query("INSERT INTO $dbName.egg(name, eggColor, eggSize, eggtype, eggStatus, weight) VALUES ('Robin-chan', 2, 2, 3, 1, 32.5);"));
-		
+        echo json_encode($sql->query("INSERT INTO $dbName.egg(name, eggColor, eggSize, eggtype, eggStatus, weight) VALUES ('Robin-chan', 2, 2, 3, 1, 32.5);"));
     }
 }
