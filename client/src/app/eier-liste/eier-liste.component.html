@@ -1,4 +1,5 @@
 <input type="text" [(ngModel)]="search" placeholder="Search Egg...">
+<button (click)="refresh()">Refresh</button>
 <table>
   <thead>
     <tr>
@@ -12,7 +13,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let ei of list">
-      <td>{{ei.eggId}}</td>
+      <td contenteditable="true">{{ei.eggId}}</td>
       <td>{{ei.name}}</td>
       <td>{{ei.eggColor}}</td>
       <td>{{ei.eggSize}}</td>
