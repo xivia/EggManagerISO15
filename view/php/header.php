@@ -13,6 +13,11 @@ $header .= "<script src='view/js/jqxcore.js'></script>";
 
 $header .= "<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>";
 $header .= "<link rel='stylesheet' href='view/css/style.css'>";
+$header .= "<link rel='stylesheet' href='view/css/orange.css'>";
+$header .= "<style>";
+$header .= "body {background-color: #777777;}";
+$header .= "div {display: inline-block;}";
+$header .= "</style>";
 $header .= "</head>";
 
 echo $header;

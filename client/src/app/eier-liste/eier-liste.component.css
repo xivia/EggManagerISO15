@@ -12,8 +12,11 @@ thead {
   color: #333;
 }
 
+th {
+  user-select: none;
+}
 
-th, td {
+tr {
   height: 30px;
   transition: height .1s;
   transition-timing-function: ease-in;
@@ -23,7 +26,12 @@ th:hover {
   background-color: white;
 }
 
+/*
 td:hover {
+  height: 60px;
+}*/
+
+tbody tr:hover {
   height: 60px;
 }
 

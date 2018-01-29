@@ -37,19 +37,39 @@ create table eggStatus (
 	PRIMARY KEY(statusId)
 );
 
+create table permission (
+	peId INT NOT NULL,
+	name varchar(32),
+	PRIMARY KEY(peId)
+);
+
+create table user (
+	usId INT NOT NULL auto_increment,
+	username varchar(32),
+	password varchar(256),
+	email varchar(256),
+	uCreated TIMESTAMP,
+	status INT,
+	FOREIGN KEY (status) REFERENCES permission (peId) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY(usId)
+);
+
 create Table egg (
-	egId INT NOT NULL auto_increment,
+	eggId INT NOT NULL auto_increment,
 	name varchar(64),
+	eggCreated TIMESTAMP,
 	eggColor INT,
 	eggSize INT,
 	eggType INT,
 	eggStatus INT,
+	userId INT,
 	weight double(5,2), /* in gramm */
 	FOREIGN KEY (eggSize) REFERENCES eggSize (sizeId) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (eggType) REFERENCES eggType (typeId) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (eggColor) REFERENCES eggColor (colorId) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (eggStatus) REFERENCES eggStatus (statusId) ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY(egId)
+	FOREIGN KEY (userId) REFERENCES user (usId) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY(eggId)
 );
 
 insert into eggType(typeId, name) values (0,'Marzipan');
@@ -94,6 +114,14 @@ insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Ro
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Flower-chan", 4, 3, 3, 1, 4.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Trigger-chan", 2, 2, 3, 1, 32.5);
 
+insert into permission(peId, name) value (0,'Banned');
+insert into permission(peId, name) value (1,'User');
+insert into permission(peId, name) value (2,'Moderator');
+insert into permission(peId, name) value (3,'Admin');
+insert into permission(peId, name) value (4,'Owner');
+insert into permission(peId, name) value (99,'Deleted');
+
+insert into user(username, password, email, uCreated, status) values ('Robin-chan', 'chan_123', 'xXxlolihentaixXx@earth.chan', '2008-11-11 13:23:44', 0)
 
 select * from eggColor; /* int */
 select * from eggType; /* int */

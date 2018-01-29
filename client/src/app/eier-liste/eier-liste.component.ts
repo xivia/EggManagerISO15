@@ -4,9 +4,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const ORDERS = {
   string: (a: string, b: string) => {
+    if (a == null) return 1;
+    if (b == null) return -1;
     return a.localeCompare(b);
   },
   number: (a: any, b: any) => {
+    if (a == null) return 1;
+    if (b == null) return -1;
     return parseInt(a) - parseInt(b);
   }
 }
@@ -66,6 +70,7 @@ export class EierListeComponent implements OnInit {
   }
 
   ngOnInit() {
+/*
    // this.http.get('/EggManagerISO15/api/egg.php').subscribe(console.log);
     this.fullList = [];
     this.fullList = [
@@ -102,5 +107,9 @@ export class EierListeComponent implements OnInit {
         weight: 22.21
       }
     ];
+*/
+    this.fullList = [];
+    this.http.get('/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+
   }
 }

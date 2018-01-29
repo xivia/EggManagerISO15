@@ -14,7 +14,7 @@ class SQL {
     private $sql;
 
     function __construct() {
-        $this->sql = mysqli_connect("sql11.freesqldatabase.com", "sql11215760", "WLhKja9IEh", "sql11215760");
+        $this->sql = mysqli_connect("sql11.freesqldatabase.com", "sql11218444", "NqQGj36vja", "sql11218444");
         if (!$this->sql) {
             die("Connection failed: " . mysqli_connect_error() . "----" . mysqli_connect_errno());
         }
@@ -22,6 +22,10 @@ class SQL {
 
     function __destruct() {
         mysqli_close($this->sql);
+    }
+
+    public static function getTable() {
+        return "sql11218444";
     }
 
     /**
@@ -35,12 +39,20 @@ class SQL {
             return mysqli_query($this->sql, "SELECT LAST_INSERT_ID();");
         }
         if (strpos(strtolower($q), "select") !== false) {
-            $t = Array();
-            while ($row = $r->fetch_assoc()) {
-                array_push($t, $row);
+            if ($r == null) {
+                return [];
+            } else {
+                $t = Array();
+                while ($row = $r->fetch_assoc()) {
+                    array_push($t, $row);
+                }
+                return $t;
             }
-            return $t;
         }
+        if (strpos(strtolower($q), "delete") !== false) {
+            return $r;
+        }
+        return $r;
         return gettype($r) == "boolean" ? $r : (mysqli_fetch_assoc($r)); //return if boolean return else fetch
     }
 
