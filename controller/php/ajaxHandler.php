@@ -20,7 +20,7 @@ $sql = new SQL();
 
 if ($command == "egg") {
     if ($action == "get") {
-        $res = $sql->query("SELECT * FROM $dbName.egg;");
+        $res = $sql->query("SELECT * FROM $dbName.egg WHERE eggStatus != 99;");
         echo json_encode($res);
     }
     if ($action == "getSingle") {
@@ -53,6 +53,8 @@ if ($command == "egg") {
     }
     
     if ($action == "drop"){
-        echo json_encode($sql->query("DROP TABLE $dbName.egg;"));
+        //echo json_encode($sql->query("DROP TABLE $dbName.egg;"));
+		echo json_encode($sql->query("INSERT INTO $dbName.egg(name, eggColor, eggSize, eggtype, eggStatus, weight) VALUES ('Robin-chan', 2, 2, 3, 1, 32.5);"));
+		
     }
 }
