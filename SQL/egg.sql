@@ -97,9 +97,9 @@ insert into eggSize(sizeId, name, sizeFrom, sizeTo) values (3,'arber',30.01,40.0
 insert into eggSize(sizeId, name, sizeFrom, sizeTo) values (4,'schoggi',40.01,50.00);
 
 
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("gaggi", null, null, null, null, 12.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("arber", null, null, null, null, 12.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("schoggihaas", null, null, null, null, 12.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("gaggi", 1, 1, 1, 1, 12.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("arber", 2, 2, 2, 2, 12.5);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("schoggihaas", 3, 3, 3, 3, 12.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("earth-chan", 1, 2, 3, 1, 12.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Robin-chan", 1, 2, 3, 1, 100.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Moon-chan", 1, 4, 2, 3, 11.5);
@@ -107,7 +107,7 @@ insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Pl
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Sun-chan", 1, 3, 4, 2, 52.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Jackie-chan", 1, 2, 3, 1, 561.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("arber-chan", 1, 2, 3, 1, 5361.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("DO you know da wae", 1, 2, 3, 1, 666.66);
+insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("DO you know da wae?", 1, 2, 3, 1, 666.66);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Aids-chan", 1, 3, 3, 1, 2342.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Ebola-chan", 1, 4, 3, 1, 234.5);
 insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Robin2-chan", 3, 2, 3, 1, 34.5);
