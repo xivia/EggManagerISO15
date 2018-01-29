@@ -66,9 +66,9 @@ export class EierListeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('/EggManagerISO15/api/egg.php').subscribe(console.log);
+   // this.http.get('/EggManagerISO15/api/egg.php').subscribe(console.log);
     this.fullList = [];
-    /*this.fullList = [
+    this.fullList = [
       {
         id: '1',
         name: 'Eiophor',
@@ -101,6 +101,6 @@ export class EierListeComponent implements OnInit {
         type: 'nümme guet',
         weight: 22.21
       }
-    ];*/
+    ];
   }
 }
