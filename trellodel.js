@@ -9,6 +9,7 @@ let interval = setInterval(() => {
                 setTimeout(() => {
                     $('.js-archive').click();
                 }, 200);
+                found = true;
             }
         }
     });

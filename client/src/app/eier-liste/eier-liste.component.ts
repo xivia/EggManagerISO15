@@ -112,4 +112,8 @@ export class EierListeComponent implements OnInit {
     this.http.get('/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
 
   }
+
+  refresh() {
+    this.http.get('/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+  }
 }
