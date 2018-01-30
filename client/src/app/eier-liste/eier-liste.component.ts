@@ -76,6 +76,8 @@ export class EierListeComponent implements OnInit {
 
  
     this.fullList = [];
+
+    /*
     this.fullList = [
       {
         eggId: '1',
@@ -110,20 +112,19 @@ export class EierListeComponent implements OnInit {
         weight: 22.21
       }
     ];
-/*
+*/
     this.fullList = [];
-    this.http.get('/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);*/
+    this.http.get('http://localhost/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
 
   }
 
   refresh() {
-    this.http.get('/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+    this.http.get('http://localhost/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
   }
 
   open(egg: any) {
     console.log('opening')
     let dialogRef = this.dialog.open(EierDetailComponent, {
-      
       data: egg
     });
   }
