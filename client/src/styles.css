@@ -4,3 +4,5 @@ body {
 	height: 100%;
 	background-color: #222;
 }
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

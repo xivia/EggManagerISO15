@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let ei of list">
+    <tr *ngFor="let ei of list" (click)="open(ei)">
       <td contenteditable="true">{{ei.eggId}}</td>
       <td>{{ei.name}}</td>
       <td>{{ei.eggColor}}</td>
