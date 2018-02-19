@@ -70,7 +70,11 @@ if ($command == "egg") {
         echo json_encode($res);
     }
 	if($action == "eatEgg") {
-		echo json_encode($sql->query("UPDATE " . $dbName . ".egg SEt 'status' = 3 WHERE eggId = " . $data . ";"));
+		echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET 'status' = 3 WHERE eggId = " . $data . ";"));
+		echo json_encode($res);
+	}
+	// if($action == "updateEgg") {
+		echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET 'name' =" .$assoc["name"].", 'eggColor' =".$assoc["color"].", 'eggType'=".$assoc["type"].", 'weight'=".$assoc["weight"]."  WHERE eggId = " . $assoc["id"] . ";"));
 		echo json_encode($res);
 	}
 	
