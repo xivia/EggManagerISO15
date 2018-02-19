@@ -12,12 +12,14 @@ require_once 'color.class.php';
 
 class egg {
 
+	var $id;
     var $color;
     var $type;
     var $weight;
     var $name;
 
-    function __construct($color, $type, $gramm, $name) {
+    function __construct($id, $color, $type, $gramm, $name) {
+		$this->id = $id;
         $this->color = new color($color);
         $this->type = new type($type);
         $this->weight = new weight($gramm);
@@ -46,6 +48,7 @@ class egg {
         $a["color"] = $this->color->getColor();
         $a["name"] = $this->name;
         $a["weight"] = $this->weight->getWeight();
+		$a["id"] = $this->id;
         return $a;
     }
 
