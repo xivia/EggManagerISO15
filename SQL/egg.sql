@@ -120,7 +120,7 @@ insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Aids-
 insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Ebola-chan", 1, 4, 3, 1, 234.5);
 insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Robin2-chan", 3, 2, 3, 1, 34.5);
 insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Flower-chan", 4, 3, 3, 1, 4.5);
-insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Trigger-chan", 2, 2, 3, 1, 32.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Trigger-chan", 2, 2, 3, 1, 32.6);
 
 insert into permission(peId, name) value (0,'Banned');
 insert into permission(peId, name) value (1,'User');
