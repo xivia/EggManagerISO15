@@ -42,24 +42,6 @@ create table eggColor (
 	PRIMARY KEY(colorId)
 );
 
-create Table egg (
-	eggId INT NOT NULL auto_increment,
-	name varchar(64),
-	eggCreated TIMESTAMP,
-	eggColor INT,
-	eggSize INT,
-	eggType INT,
-	status INT,
-	userId INT,
-	weight double(5,2), /* in gramm */
-	FOREIGN KEY (eggSize) REFERENCES eggSize (sizeId) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (eggType) REFERENCES eggType (typeId) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (eggColor) REFERENCES eggColor (colorId) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (status) REFERENCES status (statusId) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (userId) REFERENCES user (usId) ON DELETE CASCADE ON UPDATE CASCADE,
-	PRIMARY KEY(eggId)
-);
-
 create table permission (
 	peId INT NOT NULL,
 	name varchar(32),
@@ -79,23 +61,42 @@ create table user (
 	PRIMARY KEY(usId)
 );
 
-insert into eggType(typeId, name) values (0,'Marzipan');
-insert into eggType(typeId, name) values (1,'Arber');
-insert into eggType(typeId, name) values (2,'LUL');
-insert into eggType(typeId, name) values (3,'GRUUUUUSIG');
-insert into eggType(typeId, name) values (4,'GUDDY');
+create Table egg (
+	eggId INT NOT NULL auto_increment,
+	name varchar(64),
+	eggCreated TIMESTAMP,
+	eggColor INT,
+	eggSize INT,
+	eggType INT,
+	status INT,
+	userId INT,
+	weight double(5,2), /* in gramm */
+	FOREIGN KEY (eggSize) REFERENCES eggSize (sizeId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (eggType) REFERENCES eggType (typeId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (eggColor) REFERENCES eggColor (colorId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (status) REFERENCES status (statusId) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (userId) REFERENCES user (usId) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY(eggId)
+);
 
-insert into eggColor(colorId, name, colorR, colorG, colorB) values (0,'BLack',0,0,0);
-insert into eggColor(colorId, name, colorR, colorG, colorB) values (1,'Blue',0,0,255);
-insert into eggColor(colorId, name, colorR, colorG, colorB) values (2,'Red',255,0,0);
-insert into eggColor(colorId, name, colorR, colorG, colorB) values (3,'Green',0,255,0);
-insert into eggColor(colorId, name, colorR, colorG, colorB) values (4,'Purple',255,0,255);
+insert into eggType(typeId, name) values (0,'Marzipan-chan');
+insert into eggType(typeId, name) values (1,'Arber-chan');
+insert into eggType(typeId, name) values (2,'LUL-chan');
+insert into eggType(typeId, name) values (3,'GRUUUUUSIG-chan');
+insert into eggType(typeId, name) values (4,'GUDDY-chan');
 
-insert into eggStatus(statusId, name) values (0,'Stored');
-insert into eggStatus(statusId, name) values (1,'Missing');
-insert into eggStatus(statusId, name) values (2,'Broke');
-insert into eggStatus(statusId, name) values (3,'Eaten');
-insert into eggStatus(statusId, name) values (4,'In Work');
+insert into eggColor(colorId, name, colorR, colorG, colorB) values (0,'BLack-chan',0,0,0);
+insert into eggColor(colorId, name, colorR, colorG, colorB) values (1,'Blue-chan',0,0,255);
+insert into eggColor(colorId, name, colorR, colorG, colorB) values (2,'Red-chan',255,0,0);
+insert into eggColor(colorId, name, colorR, colorG, colorB) values (3,'Green-chan',0,255,0);
+insert into eggColor(colorId, name, colorR, colorG, colorB) values (4,'Purple-chan',255,0,255);
+
+insert into status(statusId, name) values (0,'Stored-chan');
+insert into status(statusId, name) values (1,'Missing-chan');
+insert into status(statusId, name) values (2,'Broke-chan');
+insert into status(statusId, name) values (3,'Eaten-chan');
+insert into status(statusId, name) values (4,'In Work-chan');
+insert into status(statusId, name) values (99,'Deleted-chan');
 
 insert into eggSize(sizeId, name, sizeFrom, sizeTo) values (0,'small',0.01,10.00);
 insert into eggSize(sizeId, name, sizeFrom, sizeTo) values (1,'normal',10.01,20.00);
@@ -104,22 +105,22 @@ insert into eggSize(sizeId, name, sizeFrom, sizeTo) values (3,'arber',30.01,40.0
 insert into eggSize(sizeId, name, sizeFrom, sizeTo) values (4,'schoggi',40.01,50.00);
 
 
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("gaggi", 1, 1, 1, 1, 12.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("arber", 2, 2, 2, 2, 12.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("schoggihaas", 3, 3, 3, 3, 12.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("earth-chan", 1, 2, 3, 1, 12.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Robin-chan", 1, 2, 3, 1, 100.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Moon-chan", 1, 4, 2, 3, 11.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Pluto-chan", 1, 0, 2, 1, 15162.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Sun-chan", 1, 3, 4, 2, 52.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Jackie-chan", 1, 2, 3, 1, 561.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("arber-chan", 1, 2, 3, 1, 5361.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("DO you know da wae?", 1, 2, 3, 1, 666.66);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Aids-chan", 1, 3, 3, 1, 2342.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Ebola-chan", 1, 4, 3, 1, 234.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Robin2-chan", 3, 2, 3, 1, 34.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Flower-chan", 4, 3, 3, 1, 4.5);
-insert into egg(name, eggColor, eggSize, eggtype, eggStatus, weight) values ("Trigger-chan", 2, 2, 3, 1, 32.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("gaggi", 1, 1, 1, 1, 12.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("arber", 2, 2, 2, 2, 12.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("schoggihaas", 3, 3, 3, 3, 12.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("earth-chan", 1, 2, 3, 1, 12.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Robin-chan", 1, 2, 3, 1, 100.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Moon-chan", 1, 4, 2, 3, 11.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Pluto-chan", 1, 0, 2, 1, 15162.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Sun-chan", 1, 3, 4, 2, 52.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Jackie-chan", 1, 2, 3, 1, 561.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("arber-chan", 1, 2, 3, 1, 5361.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("DO you know da wae?", 1, 2, 3, 1, 666.66);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Aids-chan", 1, 3, 3, 1, 2342.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Ebola-chan", 1, 4, 3, 1, 234.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Robin2-chan", 3, 2, 3, 1, 34.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Flower-chan", 4, 3, 3, 1, 4.5);
+insert into egg(name, eggColor, eggSize, eggtype, status, weight) values ("Trigger-chan", 2, 2, 3, 1, 32.5);
 
 insert into permission(peId, name) value (0,'Banned');
 insert into permission(peId, name) value (1,'User');
