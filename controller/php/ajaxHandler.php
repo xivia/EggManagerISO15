@@ -69,6 +69,11 @@ if ($command == "egg") {
         echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET `status` = 99 WHERE eggId = " . $data . ";"));
         echo json_encode($res);
     }
+	if($action == "eatEgg") {
+		echo json_encode($sql->query("UPDATE " . $dbName . ".egg SEt 'status' = 3 WHERE eggId = " . $data . ";"));
+		echo json_encode($res);
+	}
+	
 
     if ($action == "drop") {
         //echo json_encode($sql->query("DROP TABLE $dbName.egg;"));
