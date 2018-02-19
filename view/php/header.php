@@ -16,7 +16,6 @@ $header .= "<link rel='stylesheet' href='view/css/style.css'>";
 $header .= "<link rel='stylesheet' href='view/css/orange.css'>";
 $header .= "<style>";
 $header .= "body {background-color: #777777;}";
-$header .= "div {display: inline-block;}";
 $header .= "</style>";
 $header .= "</head>";
 

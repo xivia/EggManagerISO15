@@ -9,8 +9,8 @@ require_once './../../controller/php/sql.class.php';
  */
 header("Access-Control-Allow-Origin: *");
 
-$data = json_decode(filter_input(INPUT_POST, "array"));
-$assoc = json_decode(filter_input(INPUT_POST, "array"), true);
+$data = json_decode(filter_input(INPUT_POST, "array")); //numeric Array
+$assoc = json_decode(filter_input(INPUT_POST, "array"), true); // Assoc Array
 $action = filter_input(INPUT_POST, "action");
 $command = filter_input(INPUT_POST, "command");
 
