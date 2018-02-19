@@ -3,6 +3,12 @@
 require_once './../../model/egg.class.php';
 require_once './../../controller/php/sql.class.php';
 
+/**
+ * Allows to request the File via JS
+ * Added by Sven Fahrni
+ */
+header("Access-Control-Allow-Origin: *");
+
 $data = json_decode(filter_input(INPUT_POST, "array"));
 $assoc = json_decode(filter_input(INPUT_POST, "array"), true);
 $action = filter_input(INPUT_POST, "action");

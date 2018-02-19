@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { MatDialog } from '@angular/material/dialog';
+import { EierDetailComponent } from '../eier-detail/eier-detail.component';
 
 const ORDERS = {
   string: (a: string, b: string) => {
@@ -25,11 +26,13 @@ const order = (field: string, type: string, array: any[]): any[] => {
 @Component({
   selector: 'eier-liste',
   templateUrl: './eier-liste.component.html',
-  styleUrls: ['./eier-liste.component.css']
+  styleUrls: ['./eier-liste.component.css'],
+  entryComponents: [EierDetailComponent]
 })
+
 export class EierListeComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dialog: MatDialog) { }
 
   search: string = '';
   private fullList: any[] = Array();
@@ -70,50 +73,59 @@ export class EierListeComponent implements OnInit {
   }
 
   ngOnInit() {
-/*
-   // this.http.get('/EggManagerISO15/api/egg.php').subscribe(console.log);
+
+ 
     this.fullList = [];
+
+    /*
     this.fullList = [
       {
-        id: '1',
+        eggId: '1',
         name: 'Eiophor',
-        color: 'wachsgrüün',
-        size: 'medium',
-        type: 'verdorben',
+        eggColor: 'wachsgrüün',
+        eggSize: 'medium',
+        eggType: 'verdorben',
         weight: 23.83
       },
       {
-        id: '2',
+        eggId: '2',
         name: 'Eiophortsch',
-        color: 'wachsggelb',
-        size: 'medium-small',
-        type: 'auch verdorben',
+        eggColor: 'wachsggelb',
+        eggSize: 'medium-small',
+        eggType: 'auch verdorben',
         weight: 23.23
       },
       {
-        id: '3',
+        eggId: '3',
         name: 'Naseböög',
-        color: 'blauuuu',
-        size: 'insane',
-        type: 'gruusig',
+        eggColor: 'blauuuu',
+        eggSize: 'insane',
+        eggType: 'gruusig',
         weight: 29.77
       },
       {
-        id: '4',
+        eggId: '4',
         name: 'Janiggerere',
-        color: 'grchüee',
-        size: 'medium-small-big',
-        type: 'nümme guet',
+        eggColor: 'grchüee',
+        eggSize: 'medium-small-big',
+        eggType: 'nümme guet',
         weight: 22.21
       }
     ];
 */
     this.fullList = [];
-    this.http.get('/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+    this.http.get('http://localhost/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
 
   }
 
   refresh() {
-    this.http.get('/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+    this.http.get('http://localhost/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+  }
+
+  open(egg: any) {
+    console.log('opening')
+    let dialogRef = this.dialog.open(EierDetailComponent, {
+      data: egg
+    });
   }
 }
