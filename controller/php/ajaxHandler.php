@@ -74,7 +74,6 @@ if ($command == "egg") {
         echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET `status` = 3 WHERE eggId = " . $data . ";"));
     }
     if ($action == "updateEgg") {
-        die("123 tEt<paoistapiusdhf");
         echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET `name` = " . ($assoc["name"] ? $assoc["name"] : null) . ", `eggColor` = " . $assoc["color"] . ", `eggType` = " . $assoc["type"] . ", `weight` = " . $assoc["weight"] . "  WHERE eggId = " . $assoc["id"] . ";"));
     }
     
