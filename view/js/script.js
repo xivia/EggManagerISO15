@@ -67,6 +67,7 @@ function removeEgg(e) {
 
 function editEgg() {
     var a = {
+        id: $("#editEggID").val(),
         name: $("#editEggName").val(),
         user: $("#editEggUser").val(),
         weight: $("#editEggWeight").val(),
@@ -75,8 +76,9 @@ function editEgg() {
         color: $("#editEggColor").val(),
         status: $("#eitEggStatus").val()
     };
-
-    getPostRequest($.toJSON(a), 'egg', 'edit').done(function (e) {
+    console.log(a);
+    getPostRequest(a, 'egg', 'editEgg').done(function (e) {
+        console.log(e);
         message(resTrim(e));
     });
 }
@@ -113,8 +115,8 @@ function closePopup() {
 
 function editEggPopup(e) {
     var row = globalEggArray[e];
-    console.log(row);
     if (row) {
+        $("#editEggID").val(row.eggId);
 
         $("#editEggColor").jqxComboBox('selectItem', row.eggColor);
         $("#editEggType").jqxComboBox('selectItem', row.eggType);

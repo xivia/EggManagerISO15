@@ -68,10 +68,15 @@ if ($command == "egg") {
         echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET `status` = 99 WHERE eggId = " . $data . ";"));
     }
     if ($action == "eatEgg") {
-        echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET 'status' = 3 WHERE eggId = " . $data . ";"));
+        echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET `status` = 3 WHERE eggId = " . $data . ";"));
     }
     if ($action == "updateEgg") {
-        echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET 'name' ='" . $assoc["name"] . "', 'eggColor' =" . $assoc["color"] . ", 'eggType'=" . $assoc["type"] . ", 'weight'=" . $assoc["weight"] . "  WHERE eggId = " . $assoc["id"] . ";"));
+        die("123 tEt<paoistapiusdhf");
+        echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET `name` = " . ($assoc["name"] ? $assoc["name"] : null) . ", `eggColor` = " . $assoc["color"] . ", `eggType` = " . $assoc["type"] . ", `weight` = " . $assoc["weight"] . "  WHERE eggId = " . $assoc["id"] . ";"));
+    }
+    
+    if ($action == "editEgg"){
+        die("123 tEt<paoistapiusdhf");
     }
 
 

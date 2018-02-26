@@ -45,6 +45,8 @@
                     <div>Status: <input id="eitEggStatus" type="text" class="w3-input"></div>
 
                     <div>User: <input id="editEggUser" type="text" class="w3-input" disabled></div>
+                    
+                    <input type="hidden" id="editEggID">
 
                     <div><input type="button" value="Senden" class="w3-button w3-black button" onclick="editEgg()"></div>
                 </div>
