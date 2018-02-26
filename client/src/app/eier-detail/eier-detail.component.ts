@@ -21,7 +21,7 @@ export class EierDetailComponent {
   }
 
   wirf(){
-    this.getPostRequest(JSON.stringify({name: 'gloon', color: 1, type: 1,id: this.data.eggId, weight: 1337}), 'updateEgg', 'egg');
+    this.getPostRequest(JSON.stringify({name: 'threwn fakking ' + this.data.name, color: 1, type: 1,id: this.data.eggId, weight: 1337}), 'updateEgg', 'egg');
   }
 
   eat() {
@@ -29,7 +29,7 @@ export class EierDetailComponent {
   }
 
   x2(){
-    this.getPostRequest({name: this.data.name, color: this.data.eggColor, type: this.data.eggType, weight: this.data.weight}, 'add', 'egg');
+    this.getPostRequest({name: this.data.name, color: this.data.eggColor, type: this.data.eggType, weight: this.data.weight, size: 3}, 'add', 'egg');
   }
 
   getPostRequest(data, action, command) {
@@ -39,7 +39,7 @@ export class EierDetailComponent {
   postRequest(url, data, action, command) {
     let x = $.post(url, {array: JSON.stringify(data), action: action, command: command});
     console.log(x)
-   // window.location.reload();
+    window.location.reload();
   } 
 
 }
