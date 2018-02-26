@@ -9,6 +9,7 @@
       <th (click)="orderList('eggSize', 'number')">Grösse&nbsp;<i class="fa fa-{{getIcon('eggSize')}}"></i></th>
       <th (click)="orderList('eggType', 'string')">Typ&nbsp;<i class="fa fa-{{getIcon('eggType')}}"></i></th>
       <th (click)="orderList('weight', 'number')">Gewicht&nbsp;<i class="fa fa-{{getIcon('weight')}}"></i></th>
+      <th (click)="orderList('weight', 'number')">Status&nbsp;<i class=""></i></th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
       <td>{{ei.eggSize}}</td>
       <td>{{ei.eggType}}</td>
       <td>{{ei.weight}}</td>
+      <td>{{ei.status}}</td>
     </tr>
   </tbody>
 </table>

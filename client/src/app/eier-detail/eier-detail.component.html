@@ -1,5 +1,10 @@
-<h2 mat-dialog-title>Delete all</h2>
-<mat-dialog-content>{{data.name}} egg</mat-dialog-content>
+<h2 mat-dialog-title>{{data.name}} egg</h2>
+<mat-dialog-content>
+    What do you wanna do? {{data | json }}
+</mat-dialog-content>
 <mat-dialog-actions>
-  <button [mat-dialog-close]="delete" (click)="delete()">Yes</button>
+  <button [mat-dialog-close]="true" (click)="delete()">Delete</button>
+  <button [mat-dialog-close]="true" (click)="eat()">Essen</button>
+  <button [mat-dialog-close]="true" (click)="x2()">Duplicate</button>
+  <button [mat-dialog-close]="true" (click)="wirf()">Dem Janig an den Kopf hauen</button>
 </mat-dialog-actions>
