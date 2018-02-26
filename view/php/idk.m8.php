@@ -39,9 +39,9 @@
 
                     <div>Name: <input id="editEggName" type="text" class="w3-input"></div>  
                     <div>Weight: <input id="editEggWeight" type="text" class="w3-input"></div>
-                    <div>Type: <input id="editEggType" type="text" class="w3-input"></div>
+                    <div>Type: <div id="editEggType" type="text" class="combobox"></div></div>
                     <div>Size: <input id="editEggSize" type="text" class="w3-input"></div>
-                    <div>Color: <input id="editEggColor" type="text" class="w3-input"></div>
+                    <div>Color: <div id="editEggColor" type="text" class="combobox"></div></div>
                     <div>Status: <input id="eitEggStatus" type="text" class="w3-input"></div>
 
                     <div>User: <input id="editEggUser" type="text" class="w3-input" disabled></div>

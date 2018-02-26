@@ -55,7 +55,7 @@ if ($command == "egg") {
         $res = $sql->query("SELECT * FROM " . $dbName . ".eggSize;");
         echo $res ? json_encode($res) : error($res, mysqli_error($sql));
     }
-    
+
     if ($action == "getMinAndMaxSize") {
         $res = $sql->query("SELECT MAX(`sizeTo`) AS `max`, MIN(`sizeFrom`) AS `min` FROM " . $dbName . ".eggSize;");
         echo $res ? json_encode($res) : error($res, mysqli_error($sql));
@@ -71,7 +71,7 @@ if ($command == "egg") {
         echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET 'status' = 3 WHERE eggId = " . $data . ";"));
     }
     if ($action == "updateEgg") {
-        echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET 'name' =" . $assoc["name"] . ", 'eggColor' =" . $assoc["color"] . ", 'eggType'=" . $assoc["type"] . ", 'weight'=" . $assoc["weight"] . "  WHERE eggId = " . $assoc["id"] . ";"));
+        echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET 'name' ='" . $assoc["name"] . "', 'eggColor' =" . $assoc["color"] . ", 'eggType'=" . $assoc["type"] . ", 'weight'=" . $assoc["weight"] . "  WHERE eggId = " . $assoc["id"] . ";"));
     }
 
 

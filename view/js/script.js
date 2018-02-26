@@ -50,7 +50,7 @@ function loadGrid(e) {
         content += "<div class=" + classes + ">" + e[i].eggCreated + "</div>";
         content += "<div class=" + classes + ">" + e[i].status + "</div>";
         content += "<div class=" + classes + "><button onclick='removeEgg(" + e[i].eggId + ")' class='w3-button w3-black button'>Delete</button></div>";
-        content += "<div class=" + classes + "><button onclick='editEggPopup(" + e[i].eggId + ")' class='w3-button w3-black button'>Edit</button></div>";
+        content += "<div class=" + classes + "><button onclick='editEggPopup(" + i + ")' class='w3-button w3-black button'>Edit</button></div>";
         content += "</div>";
         grid += content;
     }
@@ -77,7 +77,7 @@ function editEgg() {
     };
 
     getPostRequest($.toJSON(a), 'egg', 'edit').done(function (e) {
-
+        message(resTrim(e));
     });
 }
 
@@ -88,6 +88,7 @@ function loadAddPopup() {
         var a = new $.jqx.dataAdapter(source);
         //combobox
         $('#eggColor').jqxComboBox({selectedIndex: 0, source: a, displayMember: "name", valueMember: "colorId", itemHeight: 70, height: inputHeight, width: inputWidth});
+        $('#editEggColor').jqxComboBox({selectedIndex: 0, source: a, displayMember: "name", valueMember: "colorId", itemHeight: 70, height: inputHeight, width: inputWidth});
     });
     getPostRequest(null, 'getTypes', 'egg').done(function (e) {
         resTrim(e);
@@ -95,11 +96,13 @@ function loadAddPopup() {
         var a = new $.jqx.dataAdapter(source);
         //combobox
         $('#eggType').jqxComboBox({selectedIndex: 0, source: a, displayMember: "name", valueMember: "typeId", itemHeight: 70, height: inputHeight, width: inputWidth});
+        $('#editEggType').jqxComboBox({selectedIndex: 0, source: a, displayMember: "name", valueMember: "typeId", itemHeight: 70, height: inputHeight, width: inputWidth});
     });
     getPostRequest(null, 'getMinAndMaxSize', 'egg').done(function (e) {
         var arr = JSON.parse(resTrim(e));
         //numeric input field
         $("#eggSize").jqxNumberInput({width: inputWidth, height: inputHeight, min: parseFloat(arr[0].min), max: parseFloat(arr[0].max)});
+        $("#editEggWeight").jqxNumberInput({width: inputWidth, height: inputHeight, min: parseFloat(arr[0].min), max: parseFloat(arr[0].max)});
     });
 }
 
@@ -112,12 +115,14 @@ function editEggPopup(e) {
     var row = globalEggArray[e];
     console.log(row);
     if (row) {
+
+        $("#editEggColor").jqxComboBox('selectItem', row.eggColor);
+        $("#editEggType").jqxComboBox('selectItem', row.eggType);
+
         $("#editEggName").val(row.name);
         $("#editEggUser").val(row.userId);
         $("#editEggWeight").val(row.weight);
-        $("#editEggType").val(row.eggType);
         $("#editEggSize").val(row.eggSize);
-        $("#editEggColor").val(row.eggColor);
         $("#eitEggStatus").val(row.status);
         $("#editPopup").css({"display": "block"});
     }
