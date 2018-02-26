@@ -8,6 +8,9 @@ require_once './../../controller/php/sql.class.php';
  * Added by Sven Fahrni
  */
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 $data = json_decode(filter_input(INPUT_POST, "array")); //numeric Array
 $assoc = json_decode(filter_input(INPUT_POST, "array"), true); // Assoc Array
