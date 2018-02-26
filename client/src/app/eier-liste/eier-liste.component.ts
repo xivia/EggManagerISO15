@@ -73,53 +73,13 @@ export class EierListeComponent implements OnInit {
   }
 
   ngOnInit() {
-
- 
     this.fullList = [];
-
-    /*
-    this.fullList = [
-      {
-        eggId: '1',
-        name: 'Eiophor',
-        eggColor: 'wachsgrüün',
-        eggSize: 'medium',
-        eggType: 'verdorben',
-        weight: 23.83
-      },
-      {
-        eggId: '2',
-        name: 'Eiophortsch',
-        eggColor: 'wachsggelb',
-        eggSize: 'medium-small',
-        eggType: 'auch verdorben',
-        weight: 23.23
-      },
-      {
-        eggId: '3',
-        name: 'Naseböög',
-        eggColor: 'blauuuu',
-        eggSize: 'insane',
-        eggType: 'gruusig',
-        weight: 29.77
-      },
-      {
-        eggId: '4',
-        name: 'Janiggerere',
-        eggColor: 'grchüee',
-        eggSize: 'medium-small-big',
-        eggType: 'nümme guet',
-        weight: 22.21
-      }
-    ];
-*/
-    this.fullList = [];
-    this.http.get('http://localhost/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+    this.http.get('http://localhost:8080/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
 
   }
 
   refresh() {
-    this.http.get('http://localhost/EggManagerISO15/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
+    this.http.get('http://localhost:8080/api/egg.php').subscribe((eier: any[]) => this.fullList = eier);
   }
 
   open(egg: any) {
