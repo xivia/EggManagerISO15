@@ -14,7 +14,7 @@ class SQL {
     private $sql;
 
     function __construct() {
-        $this->sql = mysqli_connect("sql11.freesqldatabase.com", SQL::getTable(), "IPMaZ33nVm", SQL::getTable());
+        $this->sql = mysqli_connect("sql11.freesqldatabase.com", SQL::getTable(), "BymJvW5yrp", SQL::getTable());
         if (!$this->sql) {
             die("Connection failed: " . mysqli_connect_error() . "----" . mysqli_connect_errno());
         }
@@ -25,7 +25,7 @@ class SQL {
     }
 
     public static function getTable() {
-        return "sql11222099";//passssssst numeno a eim ort
+        return "sql11223303";//passssssst numeno a eim ort
     }
 
     /**

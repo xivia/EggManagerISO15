@@ -1,1 +1,5 @@
-{{data | json}}
+<h2 mat-dialog-title>Delete all</h2>
+<mat-dialog-content>{{data.name}} egg</mat-dialog-content>
+<mat-dialog-actions>
+  <button [mat-dialog-close]="delete" (click)="delete()">Yes</button>
+</mat-dialog-actions>
