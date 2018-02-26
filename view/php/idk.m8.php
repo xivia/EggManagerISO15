@@ -25,7 +25,7 @@
                     <div>Weight: <div id="eggSize" type="text" class=""></div></div>
                     <div>Type: <div id="eggType" type="text" class="combobox"></div></div>
                     <div>Name: <input id="eggName" type="text" class="w3-input"></div>
-                    <div><input type="button" value="Senden" class="w3-button w3-black button" onclick="addEgg()"></div>
+                    <div><input type="button" value="Senden" class="w3-button w3-black button" onclick="addEgg();"></div>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                     
                     <input type="hidden" id="editEggID">
 
-                    <div><input type="button" value="Senden" class="w3-button w3-black button" onclick="editEgg()"></div>
+                    <div><input type="button" value="Senden" class="w3-button w3-black button" onclick="editEgg();"></div>
                 </div>
             </div>
         </div>

@@ -1,3 +1,5 @@
+/* global getPostRequest */
+
 var globalEggArray;
 var inputHeight = 40;
 var inputWidth = "100%";
@@ -76,10 +78,9 @@ function editEgg() {
         color: $("#editEggColor").val(),
         status: $("#eitEggStatus").val()
     };
-    console.log(a);
-    getPostRequest(a, 'egg', 'editEgg').done(function (e) {
-        console.log(e);
+    getPostRequest(a, "editEgg", "egg").done(function (e) {
         message(resTrim(e));
+        loadDataAndGrid();
     });
 }
 

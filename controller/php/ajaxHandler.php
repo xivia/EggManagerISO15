@@ -74,12 +74,54 @@ if ($command == "egg") {
         echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET `status` = 3 WHERE eggId = " . $data . ";"));
     }
     if ($action == "updateEgg") {
-        die("123 tEt<paoistapiusdhf");
         echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET `name` = " . ($assoc["name"] ? $assoc["name"] : null) . ", `eggColor` = " . $assoc["color"] . ", `eggType` = " . $assoc["type"] . ", `weight` = " . $assoc["weight"] . "  WHERE eggId = " . $assoc["id"] . ";"));
     }
-    
-    if ($action == "editEgg"){
-        die("123 tEt<paoistapiusdhf");
+
+    if ($action == "editEgg") {
+        $comma = false;
+        $q = "";
+
+        $id = $assoc["id"];
+
+        if ($assoc["name"]) {
+            $q .= "`name` = '" . $assoc["name"] . "',";
+        }
+
+        /*  if ($assoc["user"]) {
+          $q .= " `user` = '" . $assoc["user"] . "'";
+          $q .= $comma ? ", " : "";
+          $comma = true;
+          } */
+
+        /*  if ($assoc["weight"]) {
+          $q .= " `weight` = '" . $assoc["weight"] . "'";
+          $q .= $comma ? ", " : "";
+          $comma = true;
+          } */
+        /*
+          if ($assoc["type"]) {
+          $q .= " `type` = " . $assoc["type"] . "";
+          $q .= $comma ? ", " : "";
+          $comma = true;
+          }
+          
+          if ($assoc["size"]) {
+          $q .= "`size` = " . $assoc["size"] . "";
+          $q .= $comma ? ", " : "";
+          $comma = true;
+          }
+         */
+        if ($assoc["status"]) {
+            $q .= " `status` = " . $assoc["status"] . "";
+        }
+
+        /*  if ($assoc["color"]) {
+          $q .= "`color` = " . $assoc["color"] . "";
+          $q .= $comma ? ", " : "";
+          $comma = true;
+          } */
+
+        echo json_encode($sql->query("UPDATE " . $dbName . ".egg SET $q WHERE eggId = " . $id . ";"));
     }
 
 
